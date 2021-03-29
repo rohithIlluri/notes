@@ -1,6 +1,8 @@
 import React from 'react'
 
-function Sidebar({ notes ,onAddNote , onDeleteNote , activeNote , setActiveNote }) {
+function Sidebar({ notes ,onAddNote , onDeleteNote , activeNote , setActiveNote }) 
+{
+  const sortedNotes = notes.sort((a,b) => b.lastModified-a.lastModified)
 
     return (
     <div className="app-sidebar">
@@ -10,8 +12,10 @@ function Sidebar({ notes ,onAddNote , onDeleteNote , activeNote , setActiveNote 
         </div>
 
         <div className="app-sidebar-notes">
-            {notes.map((note) =>( 
-            <div className ={'app-sidebar-note ${note.id === activeNote && "active"}'}
+            {sortedNotes.map((note) =>( 
+            <div className = {
+              `app-sidebar-note ${note.id === activeNote && "active"}`
+            }
              onClick ={() => setActiveNote(note.id)}>
                 <div className="sidebar-note-title">
                     <strong>{note.title}</strong>
@@ -20,10 +24,9 @@ function Sidebar({ notes ,onAddNote , onDeleteNote , activeNote , setActiveNote 
 </div>
                    
                  <p>{note.body && note.body.substr(0,100) + "..."}</p>
-                   <small className="note-meta">last modified {new Date(note.lastModified).toLocaleDateString("en-GB",{
-
-                    hour:"2-digit",
-                    min:"2-digit", 
+                   <small className="note-meta">last modified {new Date(note.lastModified).toLocaleDateString("IST",{
+                    hour: "2-digit",
+                    min: "2-digit", 
                       })} </small>
         </div>
                  ))} 
