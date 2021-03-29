@@ -36,12 +36,6 @@ button:hover {
   display: flex;
 }
 
-.Sidebaroption {
-  display:inline-flex;
-  justify-content: flex-end;
-
-}
-
 .app-sidebar {
   width: 30%;
   height: 100vh;
