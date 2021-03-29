@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import Sidebaroption from './Sidebaroption';
 
 function Sidebar({ notes ,onAddNote , onDeleteNote , activeNote , setActiveNote }) 
 {
@@ -10,6 +11,9 @@ function Sidebar({ notes ,onAddNote , onDeleteNote , activeNote , setActiveNote 
             <h1>My Notes</h1>
             <button onClick={onAddNote}>Add</button>
         </div>
+        <hr/>
+
+        <div className="Sidebaroption"><Sidebaroption/></div>
 
         <div className="app-sidebar-notes">
             {sortedNotes.map((note) =>( 
